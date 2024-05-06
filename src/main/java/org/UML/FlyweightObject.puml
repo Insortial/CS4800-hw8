@@ -1,0 +1,135 @@
+@startuml
+left to right direction
+'https://plantuml.com/object-diagram
+object "<u>document:Document</u>" as d1 {
+
+}
+
+object "<u>H:Character</u>" as ch1 {
+    character = H
+}
+object "<u>e:Character</u>" as ch2 {
+    character = e
+}
+object "<u>l:Character</u>" as ch3 {
+    character = l
+}
+object "<u>l:Character</u>" as ch4 {
+    character = l
+}
+object "<u>o:Character</u>" as ch5 {
+    character = o
+}
+object "<u>w:Character</u>" as ch6 {
+    character = w
+}
+object "<u>o:Character</u>" as ch7 {
+    character = o
+}
+object "<u>r:Character</u>" as ch8 {
+    character = r
+}
+object "<u>l:Character</u>" as ch9 {
+    character = l
+}
+object "<u>d:Character</u>" as ch10 {
+    character = d
+}
+object "<u>C:Character</u>" as ch11 {
+    character = C
+}
+object "<u>S:Character</u>" as ch12 {
+    character = S
+}
+object "<u>5:Character</u>" as ch13 {
+    character = 5
+}
+object "<u>8:Character</u>" as ch14 {
+    character = 8
+}
+object "<u>0:Character</u>" as ch15 {
+    character = 0
+}
+object "<u>0:Character</u>" as ch16 {
+    character = 0
+}
+
+object "<u>Arial16Black:CharacterProperties</u>" as chp1 {
+    font = "Arial"
+    color = "Black"
+    size = 16
+}
+
+object "<u>Arial14Black:CharacterProperties</u>" as chp2 {
+    font = "Arial"
+    color = "Black"
+    size = 14
+}
+
+object "<u>Verdana18Blue:CharacterProperties</u>" as chp3 {
+    font = "Verdana"
+    color = "Blue"
+    size = 18
+}
+
+object "<u>Verdana12Red:CharacterProperties</u>" as chp4 {
+    font = "Verdana"
+    color = "Red"
+    size = 12
+}
+
+map "<u>characters:List<Character></u>" as MP {
+    0 *-> ch1
+    1 *-> ch2
+    2 *-> ch3
+    3 *-> ch4
+    4 *-> ch5
+    5 *-> ch6
+    6 *-> ch7
+    7 *-> ch8
+    8 *-> ch9
+    9 *-> ch10
+    10 *-> ch11
+    11 *-> ch12
+    12 *-> ch13
+    13 *-> ch14
+    14 *-> ch15
+    15 *-> ch16
+}
+
+object "<u>propertiesFactory:CharacterPropertiesFactory</u>" as chpf {
+    flyweights = new HashMap<>();
+}
+
+map "<u>flyweights:Map<String, CharacterProperties></u>" as MP2 {
+   "Arial16Black" *-> chp1
+   "Arial16Black" *-> chp2
+   "Verdana18Blue" *-> chp3
+   "Verdana12Red" *-> chp4
+}
+
+d1 *-- MP
+d1 *-- chpf
+chpf *-- MP2
+
+
+
+ch1 o-- chp1
+ch2 o-- chp2
+ch3 o-- chp2
+ch4 o-- chp2
+ch5 o-- chp2
+ch6 o-- chp1
+ch7 o-- chp2
+ch8 o-- chp2
+ch9 o-- chp2
+ch10 o-- chp2
+ch11 o-- chp3
+ch12 o-- chp3
+ch13 o-- chp4
+ch14 o-- chp4
+ch15 o-- chp4
+ch16 o-- chp4
+
+
+@enduml
